@@ -1,17 +1,10 @@
 {
   "name": "follow-builders-scripts",
   "version": "1.0.0",
-  "description": "Scripts for Follow Builders skill – feed",
   "type": "module",
   "scripts": {
-    "generate-feed": "node generate-feed.js",
-    "prepare-digest": "node prepare-digest.js",
-    "build-digest": "node build-digest.js",
-    "render-html": "node render-html.js",
-    "build-feishu-doc": "node build-feishu-doc.js",
-    "send-feishu": "node sendToFeishu.js",
-    "build-html-digest": "npm run prepare-digest | npm run build-digest | npm run render-html",
-    "push-feishu-local": "node -e \"const fs=require('fs'); const path=require('path'); const { spawnSync }=require('child_process'); const htmlPath=path.join(process.cwd(), 'latest-digest.html'); const htmlLink=process.env.DIGEST_HTML_LINK || ''; const pushed=spawnSync(process.execPath, [path.join(process.cwd(), 'scripts/sendToFeishu.js'), '--file', htmlPath, '--html-link', htmlLink], {encoding:'utf8'}); if(pushed.status!==0){ process.stderr.write(pushed.stderr||'sendToFeishu failed\\n'); process.exit(pushed.status||1); } process.stdout.write(pushed.stdout||'');\""
+    "build-html-digest": "node scripts/prepare-digest.js && node scripts/build-digest.js && node scripts/render-html.js",
+    "start": "npm run build-html-digest && npx serve . -l 10000"
   },
   "dependencies": {
     "dotenv": "^16.4.0",
