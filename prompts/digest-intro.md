@@ -6,54 +6,50 @@ You are assembling the final digest from individual source summaries.
 
 Start with this header (replace [Date] with today's date):
 
-AI Builders Digest — [Date]
+2025年5月8日 AI行业资讯日报
 
 Then organize content in this order:
 
-1. X / TWITTER section — list each builder with new posts
-2. OFFICIAL BLOGS section — list each blog post from AI company blogs (OpenAI, Anthropic, etc.)
-3. PODCASTS section — list each podcast with new episodes
+1. X / 推特动态
+2. 技术博客
+3. 播客动态
 
 ## Rules
 
-- Only include sources that have new content
-- Skip any source with nothing new
-- Under each source, paste the individual summary you generated
+- 全文使用简体中文，表达要自然、像中文作者直接写出来的内容，避免翻译腔
+- 只保留最重要的信息：核心观点、关键发布、重要数据、明确判断
+- 删除寒暄、铺垫、重复描述、弱信息和无实际信息量的句子
+- 优先适配手机阅读：短段落，清晰层级，每段尽量控制在 1-3 句
+- 不要使用表格、代码块或会导致横向滚动的格式
+- 对核心观点、关键发布、重要数据统一使用 `**加粗**`
+- 仅包含有新内容的来源；没有新内容就跳过
+- 每一条内容都必须保留原始链接
 
-### Podcast links
-- After each podcast summary, include the specific video URL from the JSON `url` field
-  (e.g. https://youtube.com/watch?v=Iu4gEnZFQz8)
-- NEVER link to the channel page. Always link to the specific video.
-- Include the exact episode title from the JSON `title` field in the heading
+### Section structure
+- 每个板块都用清晰标题分隔：`X / 推特动态`、`技术博客`、`播客动态`
+- 每个来源单独成组，先写来源名或人物名，再写摘要
+- 如果某个来源下有多条重点，可用简短列表呈现，但每条都要简洁
 
 ### Tweet author formatting
-- Use the author's full name and role/company, not just their last name
-  (e.g. "Box CEO Aaron Levie" not "Levie")
-- NEVER write Twitter handles with @ in the digest. On Telegram, @handle becomes
-  a clickable link to a Telegram user, which is wrong. Instead write handles
-  without @ (e.g. "Aaron Levie (levie on X)" or just use their full name)
-- Include the direct link to each tweet from the JSON `url` field
+- 使用作者全名和身份，不要只写姓氏
+- 不要写带 `@` 的 handle，避免被识别成其他平台的提及
+- 每位作者只保留 1-3 条最值得看的信息
+- 每位作者必须附上对应 tweet 的原始链接
 
 ### Blog post formatting
-- Use the blog name as a section header (e.g. "Anthropic Engineering", "OpenAI News", "Claude Blog")
-- Under each blog, list each new post with its title and summary
-- Include the author name if available
-- Include the direct link to the original article
+- 使用博客名作为小标题，后面紧跟文章标题与摘要
+- 优先突出发布内容、能力变化、数据结果、实际影响
+- 每篇文章都附原文链接
 
-### Mandatory links
-- Every single piece of content MUST have an original source link
-- Blog posts: the direct article URL (e.g. https://www.anthropic.com/engineering/...)
-- Podcasts: the YouTube video URL (e.g. https://youtube.com/watch?v=xxx)
-- Tweets: the direct tweet URL (e.g. https://x.com/levie/status/xxx)
-- If you don't have a link for something, do NOT include it in the digest.
-  No link = not real = do not include.
+### Podcast formatting
+- 标题中包含播客名和具体节目标题
+- 先给一句结论，再写 2-4 条最值得看的观点
+- 必须附上具体视频链接，不能只给频道页链接
 
 ### No fabrication
-- Only include content that came from the feed JSON (blogs, podcasts, and tweets)
-- NEVER make up quotes, opinions, or content you think someone might have said
-- NEVER speculate about someone's silence or what they might be working on
-- If you have nothing real for a builder, skip them entirely
+- 只使用 feed JSON 中提供的内容
+- 不要脑补、延伸或猜测作者没说过的话
+- 没有链接的内容不要写入日报
 
-### General
-- At the very end, add a line: "Generated through the Follow Builders skill: https://github.com/zarazhangrui/follow-builders"
-- Keep formatting clean and scannable — this will be read on a phone screen
+### Output ending
+- 最后一行保留：`Generated through the Follow Builders skill: https://github.com/zarazhangrui/follow-builders`

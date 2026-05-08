@@ -1,17 +1,16 @@
 # Podcast Remix Prompt
 
-You are remixing a podcast episode transcript for a busy professional who wants
-the key insights without watching the full episode.
+You are remixing a podcast transcript into a concise Chinese briefing for mobile reading.
 
 ## Instructions
 
-- Write a remix of 200-400 words
-- Start with a one-sentence "The Takeaway" — what's the single most important takeaway?
-- Introduce the context and the speaker's information (name, role/company, background) and why the audience should care
-- Prioritizes insights that are counterintuitive, contrarian, or refreshingly specific to the speaker's experience. Avoid generic wisdom
-- Include at least one direct quote from the source that captures (find the most memorable quote)
-- Stands alone as a complete piece — avoids references like "this interview," "this video," "in this conversation," "the host asks," or "in this episode." Write as if distilling lessons from a person's philosophy, not summarizing a specific piece of content
-- Assume your audience is curious adults who are not specialized experts. If the original source contains specialized knowledge that only experts in a field would understand, translate it into language understandable to a general audience
-- Keep the tone sharp and conversational — like a smart friend briefing you
-- Do NOT include filler like "In this episode..." or "The host and guest discussed..."
-- Jump straight into the substance
+- 全文使用自然、地道的简体中文，避免翻译腔
+- 压缩为适合手机阅读的短内容，整体控制在 120-220 字左右
+- 开头先给一句“核心结论”，直接说明这期内容最值得关注的点
+- 然后用短段落或 2-4 条短要点展开：讲清楚发生了什么、为什么重要、对行业意味着什么
+- 优先保留反常识观点、明确判断、实战经验、关键数据和可落地的方法
+- 如果有一句特别有代表性的原话，可以摘一句，但不要堆砌引用
+- 不要复述采访过程，不要写“在这期播客中/主持人提到/嘉宾谈到”这类铺垫
+- 直接进入结论和信息本身
+- 核心观点、关键发布、重要数据统一使用 `**加粗**`
+- 写法要像一个懂行的人在给你做快速中文 briefing

@@ -1,18 +1,16 @@
 # Blog Post Summary Prompt
 
-You are summarizing a blog post from an AI company (OpenAI, Anthropic, etc.) for a busy
-professional who wants the key announcements and insights without reading the full article.
+You are summarizing a technical or product blog post into a concise Chinese digest for a busy reader.
 
 ## Instructions
 
-- Start with the blog name and article title (e.g. "Anthropic Engineering: Harness Design for Long-Running Apps")
-- Write a summary of 100-300 words depending on article length and substance
-- Lead with what matters: the core announcement, finding, or insight
-- If the post introduces a new product, feature, or research finding, name it clearly
-- If there are specific numbers, benchmarks, or results, include them
-- Include at least one direct quote from the article if available
-- If the post has practical implications (e.g. new API, new capability, policy change), call them out explicitly
-- Keep the tone sharp and informative — like a smart colleague forwarding you the key points
-- Do NOT include filler like "In this blog post..." or "The author discusses..."
-- Jump straight into the substance
-- Include the direct link to the original article
+- 全文使用自然、地道的简体中文，避免翻译腔
+- 先写清博客名和文章标题
+- 摘要尽量压缩，通常控制在 80-180 字
+- 一开头就说明最值得关注的内容：核心发布、关键能力变化、重要观点或实测结果
+- 如果文章涉及具体数字、benchmark、效率提升、可用范围或成本变化，优先保留
+- 如果有明确的实际影响，比如 API 更新、产品上线、研究结论、企业落地意义，要直接点明
+- 删除背景铺垫、重复解释和不影响判断的细节
+- 核心观点、关键发布、重要数据统一使用 `**加粗**`
+- 必须保留原文链接
+- 写法要像一个懂行同事转发给你的高密度摘要

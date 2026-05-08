@@ -308,6 +308,16 @@ as needed). Then confirm the changes.
 
 This workflow runs on cron schedule or when the user invokes `/ai`.
 
+### One-click HTML export
+
+If the user wants a local HTML file instead of plain text, run:
+
+```bash
+cd ${CLAUDE_SKILL_DIR}/scripts && npm run build-html-digest
+```
+
+This now runs the full local pipeline: `prepare-digest.js -> build-digest.js -> render-html.js`, then writes the final report to `../latest-digest.html`. Open that file directly in a browser or file explorer.
+
 ### Step 1: Load Config
 
 Read `~/.follow-builders/config.json` for user preferences.

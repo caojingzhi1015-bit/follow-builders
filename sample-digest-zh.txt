@@ -1,0 +1,29 @@
+2025年5月8日 AI行业资讯日报
+
+X / 推特动态
+
+OpenAI
+- **GPT-5 内测启动**，重点优化多模态与长文本处理，**Q4 开启小范围测试**。
+https://x.com/openai/status/example1
+
+Anthropic
+- **Claude 3.5 Sonnet 免费开放 200k 上下文**，复杂文档处理效率 **提升 40%**。
+https://x.com/anthropicai/status/example2
+
+技术博客
+
+Anthropic Engineering - LLM长文本技术解析
+- **滑动窗口仍是主流方案**，检索增强是解决上下文理解的关键。
+https://www.anthropic.com/engineering/example
+
+OpenAI Blog - 企业AI代理落地指南
+- **权限控制与数据安全** 是企业应用的核心瓶颈，而不是模型能力本身。
+https://openai.com/index/example
+
+播客动态
+
+AI前沿Talk - 开源模型训练成本优化技巧
+- **Hugging Face 工程师分享训练成本优化方法**，实操密度很高，适合想降低训练开销的团队。
+https://youtube.com/watch?v=example123
+
+Generated through the Follow Builders skill: https://github.com/zarazhangrui/follow-builders
