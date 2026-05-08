@@ -1,13 +1,16 @@
 {
   "name": "follow-builders-scripts",
   "version": "1.0.0",
+  "description": "Scripts for Follow Builders skill - feed",
   "type": "module",
   "scripts": {
-    "build-html-digest": "node scripts/prepare-digest.js && node scripts/build-digest.js && node scripts/render-html.js",
-    "start": "npm run build-html-digest && npx serve . -l 10000"
+    "build-html-digest": "node scripts/run-daily-digest.js",
+    "run-daily-digest": "node scripts/run-daily-digest.js",
+    "start": "python -m http.server 10000"
   },
   "dependencies": {
     "dotenv": "^16.4.0",
+    "express": "^4.18.2",
     "proper-lockfile": "^4.1.0"
   }
 }
