@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 {
   "name": "follow-builders-scripts",
   "version": "1.0.0",
-  "description": "Scripts for Follow Builders skill — feed generation, digest preparation, delivery",
+  "description": "Scripts for Follow Builders skill – feed",
   "type": "module",
   "scripts": {
     "generate-feed": "node generate-feed.js",
@@ -11,30 +10,11 @@
     "render-html": "node render-html.js",
     "build-feishu-doc": "node build-feishu-doc.js",
     "send-feishu": "node sendToFeishu.js",
-    "build-html-digest": "node -e \"const fs=require('fs'); const path=require('path'); const {spawnSync}=require('child_process'); const root=process.cwd(); const dir=path.join(root,'scripts'); const lastDigestPath=path.join(root,'last-digest.json'); const digestTextPath=path.join(root,'latest-digest.txt'); const markdownPath=path.join(root,'latest-digest.md'); const htmlPath=path.join(root,'latest-digest.html'); const run=(file,input,extraArgs=[])=>spawnSync(process.execPath,[path.join(dir,file),...extraArgs],{input,encoding:'utf8'}); const hasUsableLastDigest=()=>{ if(!fs.existsSync(lastDigestPath)) return false; try { const parsed=JSON.parse(fs.readFileSync(lastDigestPath,'utf8')); return parsed && parsed.status==='ok'; } catch { return false; } }; let digestJson=''; if(hasUsableLastDigest()){ digestJson=fs.readFileSync(lastDigestPath,'utf8'); } else { const prepared=run('prepare-digest.js'); if(prepared.status!==0 || !prepared.stdout.trim()){ process.stderr.write(prepared.stderr||'prepare-digest failed\\n'); process.exit(prepared.status||1); } digestJson=prepared.stdout; fs.writeFileSync(lastDigestPath,digestJson); } const built=run('build-digest.js',digestJson); if(built.status!==0 || !built.stdout.trim()){ process.stderr.write(built.stderr||'build-digest failed\\n'); process.exit(built.status||1); } fs.writeFileSync(digestTextPath,built.stdout); const markdownBuilt=run('build-feishu-doc.js',built.stdout,['--output',markdownPath]); if(markdownBuilt.status!==0){ process.stderr.write(markdownBuilt.stderr||'build-feishu-doc failed\\n'); process.exit(markdownBuilt.status||1); } const rendered=run('render-html.js',built.stdout); if(rendered.status!==0 || !rendered.stdout.trim()){ process.stderr.write(rendered.stderr||'render-html failed\\n'); process.exit(rendered.status||1); } fs.writeFileSync(htmlPath, rendered.stdout); process.stdout.write('Generated latest-digest.txt\\n'); process.stdout.write('Generated latest-digest.md\\n'); process.stdout.write('Generated latest-digest.html\\n'); \"",
-    "push-feishu-local": "node -e \"const path=require('path'); const {spawnSync}=require('child_process'); const root=process.cwd(); const digestPath=path.join(root,'latest-digest.txt'); const htmlLink=(process.env.DIGEST_HTML_LINK||'').trim(); const pushed=spawnSync(process.execPath,[path.join(root,'scripts','sendToFeishu.js'),'--file',digestPath,'--html-link',htmlLink],{encoding:'utf8'}); if(pushed.status!==0){ process.stderr.write(pushed.stderr||'sendToFeishu failed\\n'); process.exit(pushed.status||1); } process.stdout.write(pushed.stdout||''); \""
+    "build-html-digest": "npm run prepare-digest | npm run build-digest | npm run render-html",
+    "push-feishu-local": "node -e \"const fs=require('fs'); const path=require('path'); const { spawnSync }=require('child_process'); const htmlPath=path.join(process.cwd(), 'latest-digest.html'); const htmlLink=process.env.DIGEST_HTML_LINK || ''; const pushed=spawnSync(process.execPath, [path.join(process.cwd(), 'scripts/sendToFeishu.js'), '--file', htmlPath, '--html-link', htmlLink], {encoding:'utf8'}); if(pushed.status!==0){ process.stderr.write(pushed.stderr||'sendToFeishu failed\\n'); process.exit(pushed.status||1); } process.stdout.write(pushed.stdout||'');\""
   },
   "dependencies": {
     "dotenv": "^16.4.0",
     "proper-lockfile": "^4.1.0"
   }
 }
-=======
-{
-  "name": "follow-builders-scripts",
-  "version": "1.0.0",
-  "description": "Scripts for Follow Builders skill — feed generation, digest preparation, delivery",
-  "type": "module",
-  "scripts": {
-    "generate-feed": "node generate-feed.js",
-    "prepare-digest": "node prepare-digest.js",
-    "build-digest": "node build-digest.js",
-    "render-html": "node render-html.js",
-    "build-html-digest": "node prepare-digest.js | node build-digest.js | node render-html.js > ../latest-digest.html"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.0",
-    "proper-lockfile": "^4.1.0"
-  }
-}
->>>>>>> 5c1397dc62846a599c97f2a9968e36186f174b59
