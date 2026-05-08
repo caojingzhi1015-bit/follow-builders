@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "follow-builders-scripts",
   "version": "1.0.0",
@@ -18,3 +19,22 @@
     "proper-lockfile": "^4.1.0"
   }
 }
+=======
+{
+  "name": "follow-builders-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for Follow Builders skill — feed generation, digest preparation, delivery",
+  "type": "module",
+  "scripts": {
+    "generate-feed": "node generate-feed.js",
+    "prepare-digest": "node prepare-digest.js",
+    "build-digest": "node build-digest.js",
+    "render-html": "node render-html.js",
+    "build-html-digest": "node prepare-digest.js | node build-digest.js | node render-html.js > ../latest-digest.html"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.0",
+    "proper-lockfile": "^4.1.0"
+  }
+}
+>>>>>>> 5c1397dc62846a599c97f2a9968e36186f174b59
