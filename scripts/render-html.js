@@ -141,7 +141,8 @@ function linesToBlocks(lines) {
 
 function splitSections(text) {
   const lines = text.replace(/\r\n/g, '\n').split('\n');
-  const title = normalizeLine(lines.shift() || 'AI行业资讯日报');
+  const rawTitle = normalizeLine(lines.shift() || 'AI行业资讯日报');
+  const title = rawTitle.replace(/^#\s+/, '');
   const sections = [];
   let current = null;
 
@@ -410,13 +411,19 @@ function renderHtmlDocument(title, sections) {
   const content = sections.map(renderSection).join('\n\n');
   const theme = getDailyTheme(title);
   const themeCssVars = buildThemeCssVars(theme);
+  const todayText = new Intl.DateTimeFormat('zh-CN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(new Date());
+  const liveTitle = title.replace(/\d{4}年\d{1,2}月\d{1,2}日/, todayText);
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escapeHtml(title)}</title>
+  <title>${escapeHtml(liveTitle)}</title>
   <style>
     :root {
       color-scheme: light;
@@ -765,7 +772,7 @@ ${themeCssVars}
 <body>
   <main class="page">
     <header class="hero">
-      <h1>${escapeHtml(title)}</h1>
+      <h1 id="digest-title">${escapeHtml(liveTitle)}</h1>
       <p>高质量 AI Builders 日报，面向开发者与行业从业者的深度阅读版本。</p>
     </header>
 ${content}
